@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MobileDevLab</string>
+    <string name="api_key" />
+    <string name="categoreis"><![CDATA[_embed=true&categories=1581]]></string>
+</resources>

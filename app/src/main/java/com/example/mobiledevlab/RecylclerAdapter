@@ -1,0 +1,46 @@
+package com.example.mobiledevlab
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+
+class ArticleAdapter(val article: List<Result>): RecyclerView.Adapter<ArticlesViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticlesViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.article_item, parent, false)
+        return ArticlesViewHolder(view)
+    }
+
+    override fun getItemCount(): Int {
+        return article.size
+    }
+
+    override fun onBindViewHolder(holder: ArticlesViewHolder, position: Int) {
+        return holder.bind(articles[position])
+    }
+}
+
+class MoviesViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
+    private val photo:ImageView = itemView.findViewById(R.id.article_photo)
+    private val title:TextView = itemView.findViewById(R.id.title)
+    private val overview:TextView = itemView.findViewById(R.id.slug)
+
+    fun bind(article: Result) {
+        Glide.with(itemView.context).load("http://image.tmdb.org/t/p/w500${article.path}").into(photo)
+        title.text = "Title: "+article.title
+    }
+}
+/*
+    val id: Int,
+    val slug: String,
+    val status: String,
+    val date: String,
+    val title: String,
+    val excerpt: String,
+    val vote_count: Int,
+    val link: String,
+    val categories: Array<Int>
+*/

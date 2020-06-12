@@ -1,0 +1,12 @@
+package com.example.mobiledevlab
+
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Query
+
+interface Tv8Endpoints {
+
+    @GET("/v2/posts")
+    fun getArticles(@Query("categories") key: String): Call<AllArticles>
+
+}
